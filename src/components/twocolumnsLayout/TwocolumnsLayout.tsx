@@ -4,7 +4,7 @@ interface ITwocolumnsProps{
 }
 function TwocolumnsLayout({leftContent ,RightContent,leftStyle='' , rightStyle ='',containerStyle=''}:ITwocolumnsProps) {
   return (
-    <div className={`container  flex items-center justify-center md:justify-between md:gap-12 flex-col md:flex-row`}>
+    <div className={`container  flex items-center px-2 justify-center md:justify-between md:gap-12 flex-col md:flex-row`}>
         <div className={ `w-full mx-auto md:w-1/2 ${leftStyle}`}>
             {leftContent}
         </div>

@@ -1,5 +1,6 @@
-import React from 'react'
-import { IconType } from 'react-icons'
+import React, { useEffect, useRef } from 'react'
+import { log } from 'util';
+
 interface IBoxProps{
     icon :React.ReactNode,
     left?:string,
@@ -7,9 +8,44 @@ interface IBoxProps{
     top? :string,
     bottom ?:string,
     paragraph:string
+    ,className?:string
 }
-function Box({icon , left , right,paragraph ,top, bottom}:IBoxProps) {
-    
+function Box({icon , left , right,paragraph ,top, bottom , className}:IBoxProps) {
+  const elemRef = useRef(null)
+           useEffect(()=>{
+        
+               const Observer = new IntersectionObserver((entrys) =>{
+                     entrys.forEach(entry =>{
+                       if(entry.isIntersecting){
+                         console.log(entry.target);
+                         
+                        if(scrollY){
+                      
+                         if(entry.target.className.includes("left")){
+
+                           entry.target.classList.add("lefttoright","lefttorightDesktop")
+
+                         }
+                         else{
+                           entry.target.classList.add("RightToLeft","RightToLeftDesktop")
+                         }
+                         Observer.unobserve(entry.target)
+                        }
+                         
+                       }
+                       
+                     })
+                   
+               })
+                 if(elemRef.current){
+                   Observer.observe(elemRef.current)
+                 }
+                 return () =>{
+                   if(elemRef.current){
+                     Observer.unobserve(elemRef.current)
+                   }
+                 }
+           })
 const positionStyles = {
     left: left ? left : undefined,
     right: right ? right : undefined,
@@ -18,8 +54,9 @@ const positionStyles = {
   };
 
 
+
   return (
-   <div className={`bg-gray-100 p-1 lg:p-2 w-40 md:w-44 rounded-md absolute `} style={positionStyles}>
+   <div className={`bg-gray-100 p-1 lg:p-2 w-40 md:w-44 rounded-md absolute ${className}`} ref={elemRef} style={positionStyles}>
             <div className='bg-rose-300 w-10 h-10 flex items-center justify-center rounded-md'>
                {icon}
             </div>

@@ -16,7 +16,7 @@ export default function Home() {
     <Header/>
    </div>
     <SpliteImage/>
-    <div className="container mx-auto  mt-96">
+    <div className="container mx-auto mt-64 md:mt-96">
       <Brand/>
       <Technology/>
     </div>

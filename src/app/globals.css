@@ -11,3 +11,94 @@ body{
 @theme{
    --font-SCRegular : "SCRegular"
 }
+
+@keyframes boxLefttoRight{
+  0%{
+    transform: translateX(-300);
+  }
+
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes boxTopToBottom{
+    0%{
+    transform: translateY(-900);
+  }
+  
+  100%{
+    transform: translateY(0);
+  }
+}
+@keyframes boxRightToLeft{
+    0%{
+    transform: translateX(300);
+  }
+  
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes boxLefttoRightDesktop{
+  0%{
+    transform: translateX(-1300px);
+  }
+
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes boxRightToLeftDesktop{
+    0%{
+    transform: translateX(1000);
+  }
+  
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes textOpacity{
+    0%{
+   opacity: 0;
+   transform: translateY(-1000%);
+  }
+  
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.lefttoright{
+    animation: boxLefttoRight 3s ;
+}
+.RightToLeft{
+    animation: boxRightToLeft 3s ;
+}
+.RightToLeft{
+    animation: boxRightToLeft 3s ;
+}
+/* .lefttorightDesktop{
+    animation: boxLefttoRightDesktop 3s ;
+} */
+/* .RightToLeftDesktop{
+    animation: boxRightToLeftDesktop 3s ;
+} */
+.textanimation{
+    animation: textOpacity 1s  alternate;
+  
+}
+
+@media (min-width: 768px) {
+  .lefttorightDesktop {
+     animation: boxLefttoRightDesktop 2s ;
+  }
+.RightToLeftDesktop{
+    animation: boxRightToLeftDesktop 2s ;
+}
+
+
+}

@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-slate-50 font-SCbold">
+      <body className="bg-slate-50 px-2 md:px-0 font-SCbold overflow-x-hidden">
        
         {children}
         <Footer/>
