@@ -17,9 +17,9 @@ function CustomerItem({title , image, rate , description , animation}:ICustomerP
                    const Observer = new IntersectionObserver((entrys) =>{
                          entrys.forEach(entry =>{
                            if(entry.isIntersecting){
-                             console.log(entry.target);
+                          
                              
-                            if(scrollY){
+                         
                              if(animation === "left"){
                                entry.target.classList.add("lefttoright","lefttorightDesktop")
                              }
@@ -27,7 +27,7 @@ function CustomerItem({title , image, rate , description , animation}:ICustomerP
                                entry.target.classList.add("RightToLeft","RightToLeftDesktop")
                              }
                              Observer.unobserve(entry.target)
-                            }
+                            
                              
                            }
                            
@@ -50,7 +50,7 @@ function CustomerItem({title , image, rate , description , animation}:ICustomerP
                        <div >
                            <h3 className='font-bold'>{title}</h3>
                            <div className='flex gap-0.5'>
-                                {Array.from({length : rate}).map((_, i) =>(<FaStar key={crypto.randomUUID()}/>))}
+                                {Array.from({length : rate}).map((_, i) =>(<FaStar key={i}/>))}
                           
                        
                            </div>

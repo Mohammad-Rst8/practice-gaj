@@ -17,9 +17,7 @@ function Box({icon , left , right,paragraph ,top, bottom , className}:IBoxProps)
                const Observer = new IntersectionObserver((entrys) =>{
                      entrys.forEach(entry =>{
                        if(entry.isIntersecting){
-                         console.log(entry.target);
-                         
-                        if(scrollY){
+                     
                       
                          if(entry.target.className.includes("left")){
 
@@ -30,7 +28,7 @@ function Box({icon , left , right,paragraph ,top, bottom , className}:IBoxProps)
                            entry.target.classList.add("RightToLeft","RightToLeftDesktop")
                          }
                          Observer.unobserve(entry.target)
-                        }
+                        
                          
                        }
                        

@@ -26,7 +26,7 @@ function Customer() {
 
         {boxItem.map((item,index) =>(
             
-          <CustomerItem key={crypto.randomUUID()} {...item}/>
+          <CustomerItem key={index} {...item}/>
         ))}
 
 
